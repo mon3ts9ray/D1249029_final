@@ -55,7 +55,7 @@ function fadeOutAudio(duration = 1000) {
 document.addEventListener("visibilitychange", () => {
     if (!music.muted) {
         if (document.visibilityState === "visible") {
-            fadeInAudio(0.2);
+            fadeInAudio(0.03);
         } else {
             fadeOutAudio();
         }
@@ -65,7 +65,7 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("load", () => {
     type();
     if (!music.muted) {
-        fadeInAudio(0.2);
+        fadeInAudio(0.03);
     }
 });
 
@@ -127,4 +127,67 @@ function drawStars() {
 
 createStars(150);
 drawStars();
+
+// ===== Glow Cursor 效果 =====
+const glow = document.createElement('div');
+glow.id = 'cursor-glow';
+document.body.appendChild(glow);
+
+document.addEventListener('mousemove', e => {
+    glow.style.left = `${e.clientX}px`;
+    glow.style.top = `${e.clientY}px`;
+});
+// ===== Glow Cursor with Trail Effect =====
+const trailCount = 3; // 拖尾數量
+const trails = [];
+
+for (let i = 0; i < trailCount; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-trail';
+    document.body.appendChild(dot);
+    trails.push(dot);
+}
+
+let mouseX = 0, mouseY = 0;
+
+document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateTrail() {
+    for (let i = trails.length - 1; i > 0; i--) {
+        trails[i].style.left = trails[i - 1].style.left;
+        trails[i].style.top = trails[i - 1].style.top;
+    }
+    trails[0].style.left = `${mouseX}px`;
+    trails[0].style.top = `${mouseY}px`;
+
+    requestAnimationFrame(animateTrail);
+}
+
+animateTrail();
+
+const miniMapLinks = document.querySelectorAll('#mini-map-nav a');
+const sections = Array.from(miniMapLinks).map(link => document.querySelector(link.getAttribute('href')));
+
+function highlightMiniMap() {
+    let current = "";
+    for (let section of sections) {
+        const top = section.offsetTop - window.innerHeight / 2;
+        if (window.scrollY >= top) {
+            current = section.getAttribute('id');
+        }
+    }
+
+    miniMapLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener("scroll", highlightMiniMap);
+window.addEventListener("load", highlightMiniMap);
 
