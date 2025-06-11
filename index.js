@@ -18,7 +18,7 @@ music.muted = true;
 toggleBtn.addEventListener("click", () => {
     if (music.muted) {
         music.muted = false;
-        fadeInAudio(0.03);
+        fadeInAudio(0.05);
         toggleBtn.textContent = "⏸";
     } else {
         music.muted = true;
@@ -55,7 +55,7 @@ function fadeOutAudio(duration = 1000) {
 document.addEventListener("visibilitychange", () => {
     if (!music.muted) {
         if (document.visibilityState === "visible") {
-            fadeInAudio(0.03);
+            fadeInAudio(0.05);
         } else {
             fadeOutAudio();
         }
@@ -65,7 +65,7 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("load", () => {
     type();
     if (!music.muted) {
-        fadeInAudio(0.03);
+        fadeInAudio(0.05);
     }
 });
 
