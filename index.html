@@ -16,7 +16,6 @@
             z-index: -3;
             pointer-events: none;
         }
-
     </style>
 </head>
 <body>
@@ -29,7 +28,7 @@
         <li><a href="#banner">HOME</a></li>
         <li><a href="#gallery">PRODUCTS</a></li>
         <li><a href="#about">ABOUT</a></li>
-        <li><a href="#contact">SUPORT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
     </ul>
 </nav>
 
@@ -41,6 +40,10 @@
     </div>
 </div>
 
+<!-- 載入動畫 -->
+<div class="loading-spinner" id="loading-spinner"></div>
+
+<!-- 錯誤訊息 -->
 <p class="gallery-subtitle" id="gallery">404 Error This page is currently unavailable</p>
 
 <!-- 展示櫃容器 -->
@@ -66,15 +69,13 @@
     </div>
 </div>
 
-
-
+<!-- 小地圖導覽列 -->
 <div id="mini-map-nav">
     <a href="#banner" data-label="Home"></a>
     <a href="#gallery" data-label="Products"></a>
     <a href="#about" data-label="About"></a>
-    <a href="#contact" data-label="Support"></a>
+    <a href="#contact" data-label="Contact"></a>
 </div>
-
 
 <!-- 關於區塊 -->
 <section id="about" class="about-section">
@@ -92,7 +93,7 @@
 
 <!-- 聯絡區塊 -->
 <section id="contact" class="info-section">
-    <h2>SUPPORT</h2>
+    <h2>CONTACT</h2>
 
     <div class="support-box">
         <p class="support-heading">Please read below before contacting us.</p>
@@ -107,6 +108,31 @@
     <a href="https://www.fromsoftware.jp/ww/faq.html" class="faq-button">FAQ</a>
 </section>
 
+<!-- 頁腳區塊 -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="language-select">English</div>
+        <div class="social-icons">
+            <a href="https://x.com/fromsoftware_pr"><img src="twitter.png" alt="X"></a>
+            <a href="https://www.facebook.com/fromsoftware.jp/"><img src="facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/fromsoftware_jp/"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/user/FromSoftwareInc"><img src="youtube.png" alt="YouTube"></a>
+        </div>
+    </div>
+
+    <!-- 分隔線 -->
+    <div class="footer-divider"></div>
+
+    <div class="footer-links">
+        <a href="https://www.fromsoftware.jp/ww/company_access.html">ACCESS</a>
+        <a href="https://www.fromsoftware.jp/ww/policy_privacy.html">PRIVACY POLICY</a>
+        <a href="https://www.fromsoftware.jp/ww/policy_site.html">SITE POLICY</a>
+        <a href="https://www.fromsoftware.jp/ww/sitemap.html">SITEMAP</a>
+    </div>
+    <div class="copyright">
+        © 1994-2025 FromSoftware, Inc. All rights reserved.
+    </div>
+</footer>
 
 <!-- 背景音樂播放器 -->
 <audio id="bgm" loop muted>
