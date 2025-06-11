@@ -240,8 +240,8 @@ body {
 .support-box {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 30px;
-    margin: 30px auto;
-    max-width: 800px;
+    margin: 50px auto;
+    max-width: 900px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1rem;
@@ -252,21 +252,21 @@ body {
 
 .support-box ul {
     list-style-type: disc;
-    padding-left: 20px;
+    padding-left: 60px;
     color: rgba(255, 255, 255, 0.85);
 }
 
 .faq-button {
     display: inline-block;
     margin-top: 25px;
-    padding: 14px 400px;
+    padding: 14px 350px;
     font-size: 1rem;
     color: #fff;
     border: 1px solid #fff;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
 }
 
@@ -335,9 +335,9 @@ body {
 }
 
 #mini-map-nav a.active {
-    background: rgb(223, 186, 46);
-    box-shadow: 0 0 12px rgb(223, 186, 46);
-    transform: scale(1.5);
+    background: rgba(255,255,200,0.7);
+    box-shadow: 0 0 12px rgba(255,255,200,0.7);
+    transform: scale(1.8);
 }
 
 #mini-map-nav a:hover::after {
