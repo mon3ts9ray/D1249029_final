@@ -116,7 +116,6 @@ function drawStars() {
         star.x += star.dx;
         star.y += star.dy;
 
-        // 若超出邊界，重新生成位置
         if (star.x < 0 || star.x > canvas.width || star.y < 0 || star.y > canvas.height) {
             star.x = Math.random() * canvas.width;
             star.y = Math.random() * canvas.height;
@@ -137,8 +136,9 @@ document.addEventListener('mousemove', e => {
     glow.style.left = `${e.clientX}px`;
     glow.style.top = `${e.clientY}px`;
 });
+
 // ===== Glow Cursor with Trail Effect =====
-const trailCount = 3; // 拖尾數量
+const trailCount = 3;
 const trails = [];
 
 for (let i = 0; i < trailCount; i++) {
@@ -190,4 +190,3 @@ function highlightMiniMap() {
 
 window.addEventListener("scroll", highlightMiniMap);
 window.addEventListener("load", highlightMiniMap);
-

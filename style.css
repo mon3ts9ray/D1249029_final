@@ -1,3 +1,6 @@
+/* ==========================
+   基本樣式與全局設定
+   ========================== */
 * {
     cursor: none !important;
 }
@@ -12,6 +15,9 @@ body {
     user-select: none;
 }
 
+/* ==========================
+   頁首與背景動畫區塊
+   ========================== */
 .banner {
     display: flex;
     justify-content: center;
@@ -29,7 +35,6 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -1;
-
     -webkit-mask-image: url(ink_lv2.gif);
     -webkit-mask-size: cover;
     -webkit-mask-position: center;
@@ -53,7 +58,8 @@ body {
     z-index: 1;
     user-select: none;
 }
-.content p{
+
+.content p {
     font-size: 18px;
     user-select: none;
 }
@@ -63,6 +69,9 @@ body {
     user-select: none;
 }
 
+/* ==========================
+   畫廊與展示區塊
+   ========================== */
 .gallery-subtitle {
     text-align: center;
     color: rgba(255,255,255,0.7);
@@ -78,7 +87,6 @@ body {
     mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
-
 
 .carousel-track {
     display: flex;
@@ -115,6 +123,14 @@ body {
     animation-play-state: paused;
 }
 
+@keyframes scroll-loop {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ==========================
+   音樂控制按鈕
+   ========================== */
 #music-toggle {
     position: fixed;
     bottom: 20px;
@@ -139,23 +155,9 @@ body {
     transform: scale(1.05);
 }
 
-@keyframes scroll-loop {
-    0%   { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 導覽列樣式 */
+/* ==========================
+   導覽列區塊
+   ========================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -187,28 +189,19 @@ body {
     color: #656565;
 }
 
-/* info 區塊樣式 */
-.info-section {
-    padding: 80px 20px;
-    text-align: center;
-    background: #000;
-    color: white;
-}
-
-.info-section h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-/* 關於區塊文字美化 */
-.about-section {
+/* ==========================
+   關於與聯絡區塊
+   ========================== */
+.about-section, .info-section {
     background-color: #000;
     padding: 80px 20px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.section-title {
+.section-title, .info-section h2 {
     font-size: 2.5rem;
     color: white;
     margin-bottom: 40px;
@@ -222,12 +215,9 @@ body {
     text-align: center;
     border-radius: 20px;
     font-family: 'Klee One', serif;
-
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-
     color: white;
     font-size: 1.1rem;
     line-height: 1.8;
@@ -238,27 +228,13 @@ body {
     animation-delay: 0.3s;
 }
 
-.about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #fff;
-    letter-spacing: 2px;
-}
-
 .about-text p {
     margin-bottom: 1.5em;
 }
 
-/* 動畫特效 */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .support-box {
@@ -274,29 +250,10 @@ body {
     backdrop-filter: blur(8px);
 }
 
-.support-heading {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    color: #fff;
-}
-
-.support-title {
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
 .support-box ul {
     list-style-type: disc;
     padding-left: 20px;
     color: rgba(255, 255, 255, 0.85);
-}
-
-.support-box li {
-    margin-bottom: 10px;
-    list-style-type: disc;
 }
 
 .faq-button {
@@ -318,34 +275,38 @@ body {
     color: #000;
     transform: scale(1.05);
 }
-#cursor-glow {
+
+/* ==========================
+   鼠標與拖尾光點
+   ========================== */
+#cursor-glow, .cursor-trail {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle, rgb(223, 186, 46) 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    z-index: 9999;
-    transition: transform 0.05s ease;
-    transform: translate(-50%, -50%);
-}
-.cursor-trail {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,200,0.7) 0%, rgba(255,255,200,0) 70%);
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: screen;
-    transition: transform 0.2s ease-out;
     transform: translate(-50%, -50%);
     will-change: transform;
 }
 
+#cursor-glow {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgb(223, 186, 46) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transition: transform 0.05s ease;
+}
+
+.cursor-trail {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,200,0.7) 0%, rgba(255,255,200,0) 70%);
+    transition: transform 0.2s ease-out;
+}
+
+/* ==========================
+   小地圖導航點
+   ========================== */
 #mini-map-nav {
     position: fixed;
     left: 30px;
@@ -369,13 +330,13 @@ body {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
     display: block;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     position: relative;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 #mini-map-nav a.active {
-    background: rgb(223, 186, 46) 0%;
-    box-shadow: 0 0 12px rgb(223, 186, 46) 0%;
+    background: rgb(223, 186, 46);
+    box-shadow: 0 0 12px rgb(223, 186, 46);
     transform: scale(1.5);
 }
 
@@ -393,6 +354,9 @@ body {
     opacity: 0.9;
 }
 
+/* ==========================
+   頁腳區塊
+   ========================== */
 .site-footer {
     background: #111;
     padding: 40px 20px 30px;
@@ -466,6 +430,10 @@ footer .copyright {
     max-width: 1200px;
     width: 80%;
 }
+
+/* ==========================
+   載入動畫
+   ========================== */
 .loading-spinner {
     margin: 0 auto;
     margin-top: 100px;
